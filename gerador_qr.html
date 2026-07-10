@@ -219,23 +219,17 @@
 
     <!-- PAINEL DE CONTROLO (Escondido ao imprimir) -->
     <div class="control-panel">
-        <h1>Gerador de QR Codes para Mesas</h1>
-        <p>Insira o endereço onde alojou a ementa digital e indique a quantidade de mesas. A página irá gerar os QR Codes formatados. Pressione <strong>Ctrl + P</strong> (ou Cmd + P no Mac) para imprimir a folha de etiquetas diretamente.</p>
+        <h1>Gerador de QR Codes de Ementa</h1>
+        <p>Insira o endereço onde alojou a ementa digital e indique a quantidade de etiquetas que quer imprimir. A página irá gerar os QR Codes iguais. Pressione <strong>Ctrl + P</strong> (ou Cmd + P no Mac) para imprimir a folha diretamente.</p>
         
         <div class="form-group">
             <label for="base-url">Endereço da Ementa Digital (URL)</label>
-            <input type="url" id="base-url" placeholder="Ex: https://casta85.vercel.app" value="">
+            <input type="url" id="base-url" placeholder="Ex: https://ementa-digital-casta85.vercel.app" value="https://ementa-digital-casta85.vercel.app">
         </div>
         
-        <div class="form-row">
-            <div class="form-group">
-                <label for="table-start">Mesa Inicial</label>
-                <input type="number" id="table-start" value="1" min="1">
-            </div>
-            <div class="form-group">
-                <label for="table-count">Mesa Final</label>
-                <input type="number" id="table-count" value="15" min="1">
-            </div>
+        <div class="form-group">
+            <label for="label-count">Quantidade de Etiquetas a Imprimir</label>
+            <input type="number" id="label-count" value="15" min="1" max="50">
         </div>
         
         <button class="btn-generate" onclick="generateQRCodes()">Gerar QR Codes para Impressão</button>
@@ -243,24 +237,20 @@
 
     <!-- GRELHA DE IMPRESSÃO -->
     <div class="qr-grid" id="qr-grid-container">
-        <!-- Cartões de mesas gerados aqui -->
+        <!-- Cartões gerados aqui -->
     </div>
 
     <!-- Scripts -->
     <script src="qrcode.min.js"></script>
     <script>
-        // Tentar obter o URL do ficheiro atual como sugestão padrão
+        // Gerar logo ao abrir
         window.onload = () => {
-            const currentPath = window.location.href;
-            const menuPath = currentPath.replace('gerador_qr.html', 'index.html');
-            document.getElementById('base-url').value = menuPath;
             generateQRCodes();
         };
 
         function generateQRCodes() {
             const baseUrl = document.getElementById('base-url').value.trim();
-            const startTable = parseInt(document.getElementById('table-start').value) || 1;
-            const endTable = parseInt(document.getElementById('table-count').value) || 15;
+            const count = parseInt(document.getElementById('label-count').value) || 15;
             
             const grid = document.getElementById('qr-grid-container');
             grid.innerHTML = ''; // Limpar anterior
@@ -270,12 +260,7 @@
                 return;
             }
             
-            for (let i = startTable; i <= endTable; i++) {
-                // Montar o URL específico de cada mesa
-                // Verifica se o URL já tem parâmetros
-                const joinChar = baseUrl.includes('?') ? '&' : '?';
-                const tableUrl = `${baseUrl}${joinChar}mesa=${i}`;
-                
+            for (let i = 1; i <= count; i++) {
                 // Criar cartão HTML
                 const card = document.createElement('div');
                 card.className = 'table-card';
@@ -288,20 +273,20 @@
                     
                     <div class="card-qr-box" id="qr-box-${i}"></div>
                     
-                    <div class="card-table-number">MESA ${i}</div>
+                    <div style="font-size: 14px; font-weight: 700; margin: 10px 0 5px 0;">A NOSSA EMENTA</div>
                     
                     <div class="card-instructions">
-                        Digitalize para consultar a ementa
+                        Digitalize para consultar
                         <span>Scan to view the menu</span>
                     </div>
                 `;
                 
                 grid.appendChild(card);
                 
-                // Gerar o QR Code para a caixa criada
+                // Gerar o QR Code genérico para cada caixa
                 try {
                     new QRCode(document.getElementById(`qr-box-${i}`), {
-                        text: tableUrl,
+                        text: baseUrl,
                         width: 110,
                         height: 110,
                         colorDark: "#000000",
@@ -309,7 +294,7 @@
                         correctLevel: QRCode.CorrectLevel.M
                     });
                 } catch (err) {
-                    console.error("Falha ao gerar QR Code para mesa " + i, err);
+                    console.error("Falha ao gerar QR Code " + i, err);
                 }
             }
         }
