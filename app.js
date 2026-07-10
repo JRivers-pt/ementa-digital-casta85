@@ -8,7 +8,7 @@
 // 1. No Google Sheets, vá a Ficheiro -> Partilhar -> Publicar na Web.
 // 2. Selecione "Valores separados por vírgulas (.csv)" e clique em Publicar.
 // 3. Cole o link copiado entre as aspas abaixo.
-const GOOGLE_SHEET_CSV_URL = ''; 
+const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSamCHuz_7wbzgwjplpAOQpFjzHud2wQagDE_o9-FcG-UJDi8PGNfUHMU8rTj_Zomu-p6KQ52yitxTu/pub?output=csv'; 
 
 // ==========================================
 // ESTADO GLOBAL
