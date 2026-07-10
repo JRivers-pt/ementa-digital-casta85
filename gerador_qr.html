@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casta 85 | Gerador de QR Codes de Mesa</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos do Painel de Controlo */
+        :root {
+            --bg-dark: #0a0a0a;
+            --accent-gold: #c5a059;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f4f4f7;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        .control-panel {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            background-color: var(--bg-dark);
+            color: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .control-panel h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .control-panel p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: #141414;
+            color: #fff;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-generate {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-generate:hover {
+            background-color: #e5c158;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        /* Grelha de QR Codes para Impressão */
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cartão de Mesa para Impressão */
+        .table-card {
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            aspect-ratio: 3 / 4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .card-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2px;
+            line-height: 1;
+        }
+
+        .card-subtitle {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .card-qr-box {
+            padding: 6px;
+            border: 1px solid #eee;
+            background-color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .card-table-number {
+            font-size: 20px;
+            font-weight: 800;
+            background-color: #000;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-instructions {
+            font-size: 9px;
+            line-height: 1.3;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .card-instructions span {
+            display: block;
+            font-weight: 400;
+            color: #777;
+        }
+
+        /* ESTILOS DE IMPRESSÃO */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                margin: 0;
+            }
+
+            .control-panel {
+                display: none !important; /* Esconde painel de controlo */
+            }
+
+            .qr-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 cartões por linha na folha A4 */
+                gap: 15px;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .table-card {
+                box-shadow: none !important;
+                border: 1.5px solid #000 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAINEL DE CONTROLO (Escondido ao imprimir) -->
+    <div class="control-panel">
+        <h1>Gerador de QR Codes para Mesas</h1>
+        <p>Insira o endereço onde alojou a ementa digital e indique a quantidade de mesas. A página irá gerar os QR Codes formatados. Pressione <strong>Ctrl + P</strong> (ou Cmd + P no Mac) para imprimir a folha de etiquetas diretamente.</p>
+        
+        <div class="form-group">
+            <label for="base-url">Endereço da Ementa Digital (URL)</label>
+            <input type="url" id="base-url" placeholder="Ex: https://casta85.vercel.app" value="">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="table-start">Mesa Inicial</label>
+                <input type="number" id="table-start" value="1" min="1">
+            </div>
+            <div class="form-group">
+                <label for="table-count">Mesa Final</label>
+                <input type="number" id="table-count" value="15" min="1">
+            </div>
+        </div>
+        
+        <button class="btn-generate" onclick="generateQRCodes()">Gerar QR Codes para Impressão</button>
+    </div>
+
+    <!-- GRELHA DE IMPRESSÃO -->
+    <div class="qr-grid" id="qr-grid-container">
+        <!-- Cartões de mesas gerados aqui -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="qrcode.min.js"></script>
+    <script>
+        // Tentar obter o URL do ficheiro atual como sugestão padrão
+        window.onload = () => {
+            const currentPath = window.location.href;
+            const menuPath = currentPath.replace('gerador_qr.html', 'index.html');
+            document.getElementById('base-url').value = menuPath;
+            generateQRCodes();
+        };
+
+        function generateQRCodes() {
+            const baseUrl = document.getElementById('base-url').value.trim();
+            const startTable = parseInt(document.getElementById('table-start').value) || 1;
+            const endTable = parseInt(document.getElementById('table-count').value) || 15;
+            
+            const grid = document.getElementById('qr-grid-container');
+            grid.innerHTML = ''; // Limpar anterior
+            
+            if (!baseUrl) {
+                alert('Por favor, insira o endereço web da sua ementa!');
+                return;
+            }
+            
+            for (let i = startTable; i <= endTable; i++) {
+                // Montar o URL específico de cada mesa
+                // Verifica se o URL já tem parâmetros
+                const joinChar = baseUrl.includes('?') ? '&' : '?';
+                const tableUrl = `${baseUrl}${joinChar}mesa=${i}`;
+                
+                // Criar cartão HTML
+                const card = document.createElement('div');
+                card.className = 'table-card';
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="card-brand">Casta 85</div>
+                        <div class="card-subtitle">Vinhos & Cozinha de Autor</div>
+                    </div>
+                    
+                    <div class="card-qr-box" id="qr-box-${i}"></div>
+                    
+                    <div class="card-table-number">MESA ${i}</div>
+                    
+                    <div class="card-instructions">
+                        Digitalize para consultar a ementa
+                        <span>Scan to view the menu</span>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+                
+                // Gerar o QR Code para a caixa criada
+                try {
+                    new QRCode(document.getElementById(`qr-box-${i}`), {
+                        text: tableUrl,
+                        width: 110,
+                        height: 110,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.M
+                    });
+                } catch (err) {
+                    console.error("Falha ao gerar QR Code para mesa " + i, err);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

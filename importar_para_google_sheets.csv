@@ -1,0 +1,89 @@
+Categoria,Item,Preço,Descrição
+PARA PICAR E PARTILHAR,o PÃO,2.0,
+PARA PICAR E PARTILHAR,as AZEITONAS,1.5,
+PARA PICAR E PARTILHAR,a pasta de ATUM,2.5,
+PARA PICAR E PARTILHAR,PÃO torrado,3.0,
+PARA PICAR E PARTILHAR,bolo do CACO com manteiga de alho,3.0,
+PARA PICAR E PARTILHAR,o QUEIJO seco,4.0,
+PARA PICAR E PARTILHAR,"o TORRICADO QUEIJO DE CABRA, mel e maçã (4 uni.)",12.0,
+PARA PICAR E PARTILHAR,"as nossas OSTRAS do Algarve (4 uni.)",12.0,
+PARA PICAR E PARTILHAR,Espírito de PRESUNTO IBÉRICO,15.0,
+PARA PICAR E PARTILHAR,"as bolinhas de RABO DE BOI (4 uni.)",8.0,
+PARA PICAR E PARTILHAR,"os RISSÓIS de bacalhau (2uni.)",5.0,
+PARA PICAR E PARTILHAR,"os pastéis de BACALHAU com maionese d'alho (4 uni.)",7.0,
+PARA PICAR E PARTILHAR,"os CROQUETES de novilho com mostarda (2uni.)",6.0,
+PARA PICAR E PARTILHAR,as MOELAS estufadas,7.0,
+PARA PICAR E PARTILHAR,"as espetadas de FRANGO yakitori (6 uni.)",9.0,
+PARA PICAR E PARTILHAR,os tradicionais CARACÓIS,9.0,
+PARA PICAR E PARTILHAR,"as CARACOLETAS na chapa com molho de mostarda (12uni.)",11.0,
+PARA PICAR E PARTILHAR,os clássicos OVOS ROTOS com presunto,12.0,
+PARA PICAR E PARTILHAR,OVOS rotos de farinheira,10.0,
+PARA PICAR E PARTILHAR,a BATATA frita com maionese d'alho,5.0,
+PARA PICAR E PARTILHAR,"as nossas já conhecidas CHAMUSSAS com molho sweet chili (6 uni.)",10.0,
+PARA PICAR E PARTILHAR,"as ASAS de frango do campo grelhadas (6 uni)",8.0,
+PARA PICAR E PARTILHAR,"as perninhas de CODORNIZ ao limão na chapa(6 uni.)",7.0,
+PARA PICAR E PARTILHAR,"os famosos SONHOS de codorniz (6 uni)",9.0,
+PARA PICAR E PARTILHAR,"sonhos de COGUMELOS, a versão vegetariana (6 uni.)",8.0,
+PARA PICAR E PARTILHAR,"os nossos PEIXINHOS da horta (10 uni.)",8.0,
+PARA PICAR E PARTILHAR,"CAMARÃO em panko (6 uni.)",12.0,
+PARA PICAR E PARTILHAR,Pica pau de COELHO,15.0,
+PARA PICAR E PARTILHAR,SALADA de tomate e alfaces,5.0,
+PARA PICAR E PARTILHAR,"Torricado Codorniz (4 unid.)",11.0,
+DENTRO DO PÃO,o nosso COURATO grelhado com mostarda,3.5,
+DENTRO DO PÃO,a BIFANA do lombo,4.0,
+DENTRO DO PÃO,o tenro PREGO com manteiga de alho,8.0,
+DENTRO DO PÃO,a já famosa PORCALHOTA em bolo do caco,7.0,
+DENTRO DO PÃO,a ABA DE NOVILHO da mala no pão,8.0,
+DENTRO DO PÃO,a SANDOCHA de coxa de frango do campo,8.0,
+DENTRO DO PÃO,o guloso HAMBÚRGUER da esplanada de verão,10.0,
+DENTRO DO PÃO,Pão com CHOURIÇO,3.5,
+DENTRO DO PÃO,PÃO com leitão,5.0,
+DENTRO DO PÃO,Hambúrguer alheira,9.0,
+DENTRO DO PÃO,Bifana cachaço porco preto,8.0,
+GRELHADOS,Sardinhas,0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Carapaus,0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Salmonete,0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Corvina (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Mero (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Garoupa (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Pampo (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Cherne (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Salmão (Posta),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Robalo (Escalado),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Dourada (Escalado),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Chicharro (Escalado),0.0,"Acompanhamentos: batata assada, courgete grelhada, salada de alfaces e tomate"
+GRELHADOS,Bitoque de porco,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Bitoque de novilho,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Bife da vazia,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Codorniz de Alenquer,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Frango,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Picanha,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Tirinhas de porco preto,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,CACHAÃ‡O DE PORCO PRETO,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+GRELHADOS,Coelho,0.0,"Acompanhamentos: batata frita, salada de alfaces e tomate"
+BEBIDAS,CafÃ©/descafeinado,1.0,
+BEBIDAS,ChÃ¡,1.5,
+BEBIDAS,"Ãgua 0,50l",1.2,
+BEBIDAS,Ãgua L.,3.0,
+BEBIDAS,Ãgua com gás,2.2,
+BEBIDAS,Sumos,2.2,
+BEBIDAS,"Imperial 0,20cl",1.5,
+BEBIDAS,"Imperial 0,50cl",3.5,
+BEBIDAS,"Imperial preta 0,20cl",2.0,
+BEBIDAS,Imperial preta 0.5cl,5.0,
+BEBIDAS,"Sidra 0,20cl",2.0,
+BEBIDAS,"Sidra 0,50cl",5.0,
+BEBIDAS,Cerveja sem álcool,2.0,
+BEBIDAS,La Casera,2.5,
+SOBREMESAS,Pastel de feijão,3.0,
+SOBREMESAS,Torta de Azeitão,4.0,
+SOBREMESAS,Tigelada,5.0,
+SOBREMESAS,Bolo brigadeiro,6.0,
+SOBREMESAS,Salame de chocolate,2.5,
+SOBREMESAS,Mousse de chocolate,5.0,
+SOBREMESAS,Baba de camelo,5.0,
+SOBREMESAS,Cheesecake de maracujá,5.0,
+SOBREMESAS,Cheesecake de frutos vermelho,5.0,
+SOBREMESAS,Cheesecake de caramelo salgado,5.0,
+SOBREMESAS,FRUTA DO DIA,4.0,"Abacaxi, Laranja, Morangos, Cerejas"
+SOBREMESAS,Gelado da OLÁ sob consulta,0.0,

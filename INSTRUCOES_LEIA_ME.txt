@@ -1,0 +1,67 @@
+========================================================================
+CASTA 85 - INSTRUÇÕES DE CONFIGURAÇÃO DA EMENTA DIGITAL
+========================================================================
+
+Este projeto é uma Ementa Digital consultiva (mobile-first) para o restaurante Casta 85. 
+Toda a base de dados de pratos é atualizada em tempo real a partir de uma folha de cálculo no Google Sheets.
+
+------------------------------------------------------------------------
+PASSO 1: CONFIGURAR O GOOGLE SHEETS
+------------------------------------------------------------------------
+1. Aceda ao Google Sheets (https://sheets.google.com) com a sua conta.
+2. Crie uma nova folha de cálculo em branco.
+3. Importe os dados iniciais:
+   - Vá a Ficheiro -> Importar -> Carregar.
+   - Escolha o ficheiro "importar_para_google_sheets.csv" localizado nesta pasta.
+   - Selecione a opção "Substituir folha de cálculo" e clique em "Importar dados".
+4. Partilhe a folha com o seu cliente (gerente do restaurante), dando-lhe permissão de "Editor" para que ele possa alterar os pratos no futuro.
+
+------------------------------------------------------------------------
+PASSO 2: PUBLICAR A FOLHA E OBTER O LINK CSV
+------------------------------------------------------------------------
+1. No Google Sheets, vá a Ficheiro -> Partilhar -> Publicar na Web.
+2. Na caixa de opções:
+   - Altere de "Página Web" para "Valores separados por vírgulas (.csv)".
+   - Clique em "Publicar" e confirme.
+3. Copie o link gerado (um endereço longo que começa por https://docs.google.com/spreadsheets/...).
+
+------------------------------------------------------------------------
+PASSO 3: CONFIGURAR O CÓDIGO
+------------------------------------------------------------------------
+1. Abra o ficheiro "app.js" desta pasta com um editor de texto (como o Bloco de Notas).
+2. Na linha 10, localize:
+   const GOOGLE_SHEET_CSV_URL = '';
+3. Cole o link que copiou no Passo 2 entre as aspas simples, ficando algo como:
+   const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/.../pub?output=csv';
+4. Guarde e feche o ficheiro "app.js".
+
+------------------------------------------------------------------------
+PASSO 4: COLOCAR O SITE ONLINE (ALOJAMENTO GRATUITO)
+------------------------------------------------------------------------
+1. Aceda a https://vercel.com/ (ou Netlify) no seu browser e crie uma conta gratuita.
+2. Crie um novo projeto e faça o upload (arrastar e largar / drag and drop) de toda a pasta "EmentaDigital".
+3. Em poucos segundos, terá um link público seguro (ex: https://casta85.vercel.app).
+4. Guarde este link do site! É este endereço que vai usar para as mesas.
+
+------------------------------------------------------------------------
+PASSO 5: IMPRIMIR OS QR CODES PARA AS MESAS
+------------------------------------------------------------------------
+1. No seu browser, abra o ficheiro "gerador_qr.html" localizado nesta pasta.
+2. No painel que aparece no topo:
+   - No campo "Endereço da Ementa Digital (URL)", insira o link do site que obteve no Passo 4 (ex: https://casta85.vercel.app).
+   - Defina o intervalo de mesas (ex: Mesa Inicial 1, Mesa Final 15).
+   - Clique no botão "Gerar QR Codes para Impressão".
+3. A página irá desenhar cartões de mesa elegantes com o logótipo e o código QR individual de cada mesa.
+4. Pressione CTRL + P (ou CMD + P no Mac) para abrir as definições de impressão do browser. O painel superior desaparecerá e os cartões ficarão prontos para impressão em folha A4.
+5. Imprima, recorte e coloque nas mesas do restaurante!
+
+------------------------------------------------------------------------
+COMO O CLIENTE MUDARÁ A EMENTA (SIMPLICIDADE MÁXIMA)
+------------------------------------------------------------------------
+O cliente apenas precisa de abrir o link da folha do Google Sheets (no computador ou através da app oficial do Sheets no telemóvel) e editar os valores na tabela:
+- Preço: Escreva o novo preço (ex: 14.50).
+- Destaque / Vegetariano / Sem Glúten: Escreva "Sim" ou "Não" para ativar/desativar as respetivas etiquetas visuais de destaque (⭐, 🌱, 🌾).
+- Ocultar Prato Esgotado: Se um prato ou vinho esgotar, basta mudar o campo "Disponivel" para "Não". O prato desaparece no segundo seguinte da ementa digital dos clientes!
+
+O computador do ZoneSoft não necessita de nenhuma configuração ou ficheiro local. Tudo funciona online e em tempo real!
+========================================================================

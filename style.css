@@ -1,0 +1,451 @@
+﻿/* Casta 85 - Ementa Digital - Layout FÃ­sico (Light Mode Minimalista) */
+
+/* 1. RESET & DEFINIÃ‡Ã•ES GERAIS */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-tertiary: #f0f0f0;
+    
+    --text-primary: #111111;
+    --text-secondary: #444444;
+    --text-muted: #777777;
+    
+    --accent-gold: #c5a059;
+    
+    --border-color: #eaeaea;
+    
+    --font-heading: 'Quicksand', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    
+    --transition-smooth: all 0.2s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #e5e5e5;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. LAYOUT CONTAINER */
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* 3. HEADER & BRANDING */
+.main-header {
+    padding: 40px 20px 20px 20px;
+    background: var(--bg-primary);
+    text-align: center;
+}
+
+.header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: 4px;
+    line-height: 1;
+}
+
+.brand-subtitle {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.lang-selector {
+    display: flex;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    padding: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-lang {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 14px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.btn-lang.active {
+    background-color: #fff;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table-badge {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.table-number {
+    font-weight: 700;
+}
+
+.welcome-box {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.welcome-box p {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.btn-call-waiter {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-call-waiter:hover {
+    background: var(--bg-secondary);
+}
+
+/* 4. SEARCH E FILTERS */
+.search-filter-section {
+    padding: 10px 20px 20px;
+}
+
+.search-bar {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.search-bar input {
+    width: 100%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 12px 12px 12px 35px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.clear-search-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.quick-filters {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.filter-chip {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.filter-chip.active {
+    background: var(--text-primary);
+    color: #fff;
+    border-color: var(--text-primary);
+}
+
+/* 5. MENU NAVIGATION */
+.categories-nav-wrapper {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.categories-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 20px;
+    gap: 20px;
+    scrollbar-width: none;
+}
+
+.categories-nav::-webkit-scrollbar { display: none; }
+
+.category-tab {
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.category-tab.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.category-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+}
+
+/* 6. LISTA DE MENU */
+.menu-content {
+    padding: 30px 20px;
+}
+
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-section h2 {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.item-card {
+    padding: 8px 0;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+.item-info {
+    width: 100%;
+}
+
+.item-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.item-name {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.item-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-left: 15px;
+}
+
+.item-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.item-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px 20px 0 0;
+    padding: 30px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.modal-price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.modal-section h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.modal-section p {
+    font-size: 14px;
+}
+
+/* Toast */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background: var(--text-primary);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 2000;
+    transition: transform 0.3s;
+}
+.toast-container.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.no-results-card {
+    text-align: center;
+    padding: 40px 20px;
+}
+.btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}

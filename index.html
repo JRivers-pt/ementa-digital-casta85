@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casta 85 | Ementa Digital</title>
+    
+    <!-- Meta tags SEO básicas -->
+    <meta name="description" content="Ementa Digital interativa do restaurante Casta 85 em Alenquer. Escolha os seus pratos e petiscos favoritos diretamente na mesa.">
+    
+    <!-- Fontes Premium do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Folha de Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="header-top">
+                <div class="brand-area">
+                    <h1 class="brand-title">CASTA 85</h1>
+                    <p class="brand-subtitle" style="display: flex; align-items: center; justify-content: center; gap: 4px; letter-spacing: 1px;">Restaurante <svg width="20" height="18" viewBox="0 0 20 18" style="display:inline-block;"><circle cx="5" cy="5" r="4.5" fill="currentColor"/><circle cx="6" cy="15" r="2.5" fill="currentColor"/><circle cx="15" cy="10" r="4.5" fill="currentColor"/></svg> Bar</p>
+                </div>
+                
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="lang-selector">
+                        <button class="btn-lang active" id="lang-pt" onclick="changeLanguage('pt')">PT</button>
+                        <button class="btn-lang" id="lang-en" onclick="changeLanguage('en')">EN</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CATEGORIES BAR (Sticky Top) -->
+        <nav class="categories-nav-wrapper">
+            <div class="categories-nav" id="categories-nav">
+                <!-- Gerado dinamicamente via JS -->
+            </div>
+        </nav>
+
+        <!-- MENU ITEMS CONTENT -->
+        <main class="menu-content">
+            <div id="no-results" class="no-results-card" style="display: none;">
+                <span class="no-results-icon">🍽️</span>
+                <h3 id="txt-no-results-title">Nenhum prato encontrado</h3>
+                <p id="txt-no-results-desc">Tente pesquisar por outros ingredientes ou limpe os filtros ativos.</p>
+                <button class="btn-primary" onclick="resetAllFilters()" id="txt-btn-clear-filters">Limpar Filtros</button>
+            </div>
+            
+            <div id="menu-sections-container">
+                <!-- As secções e pratos serão inseridos dinamicamente aqui -->
+            </div>
+        </main>
+
+        <!-- ITEM DETAIL MODAL -->
+        <div class="modal-overlay" id="detail-modal" onclick="closeDetailModal(event)">
+            <div class="modal-card">
+                <button class="modal-close-btn" onclick="hideDetailModal()">✕</button>
+                <div class="modal-image-placeholder" id="modal-image">
+                    <!-- Emoji ou Imagem representativa -->
+                    <span id="modal-dish-emoji">🍽️</span>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-tags" id="modal-tags">
+                        <!-- Tags inseridas via JS -->
+                    </div>
+                    <h2 class="modal-title" id="modal-title-text">Nome do Prato</h2>
+                    <p class="modal-price" id="modal-price-text">0.00 €</p>
+                    
+                    <div class="modal-divider"></div>
+                    
+                    <h4 id="txt-modal-description-title">Descrição</h4>
+                    <p class="modal-description" id="modal-description-text">Descrição detalhada do prato.</p>
+                    
+                    <div class="modal-sub-details">
+                        <div class="detail-info-block">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <h5 id="txt-modal-subcat-title">Subcategoria</h5>
+                                <p id="modal-subcategory-text">--</p>
+                            </div>
+                        </div>
+                        <div class="detail-info-block" id="modal-allergens-container">
+                            <span class="info-icon">⚠️</span>
+                            <div>
+                                <h5 id="txt-modal-allergens-title">Alérgenos</h5>
+                                <p id="modal-allergens-text">Sem alérgenos conhecidos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-primary" onclick="hideDetailModal()" id="txt-btn-close-detail" style="width: 100%;">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <div class="footer-info">
+                <h3>Casta 85</h3>
+                <p class="footer-address">📍 Largo do Espírito Santo, 31, 2580-301 Alenquer</p>
+                <p class="footer-phone">📞 +351 915 761 911</p>
+            </div>
+            <p class="footer-copy">&copy; 2026 Casta 85. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="qrcode.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
