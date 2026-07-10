@@ -6,7 +6,7 @@
     <title>Casta 85 | Gerador de QR Codes de Mesa</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:wght@700&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
         /* Estilos do Painel de Controlo */
@@ -138,20 +138,26 @@
         }
 
         .card-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 26px;
+            font-weight: 300;
             color: #000;
+            letter-spacing: 2px;
             margin-bottom: 2px;
             line-height: 1;
         }
 
         .card-subtitle {
-            font-size: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #666;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #000;
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
         }
 
         .card-qr-box {
@@ -241,7 +247,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script>
         // Gerar logo ao abrir
         window.onload = () => {
@@ -267,11 +273,13 @@
                 
                 card.innerHTML = `
                     <div>
-                        <div class="card-brand">Casta 85</div>
-                        <div class="card-subtitle">Vinhos & Cozinha de Autor</div>
+                        <div class="card-brand">CASTA 85</div>
+                        <div class="card-subtitle">Restaurante <svg width="14" height="12" viewBox="0 0 20 18" style="display:inline-block;"><circle cx="5" cy="5" r="4.5" fill="currentColor"/><circle cx="6" cy="15" r="2.5" fill="currentColor"/><circle cx="15" cy="10" r="4.5" fill="currentColor"/></svg> Bar</div>
                     </div>
                     
-                    <div class="card-qr-box" id="qr-box-${i}"></div>
+                    <div style="margin: 5px 0;">
+                        <canvas id="qr-box-${i}"></canvas>
+                    </div>
                     
                     <div style="font-size: 14px; font-weight: 700; margin: 10px 0 5px 0;">A NOSSA EMENTA</div>
                     
@@ -283,15 +291,13 @@
                 
                 grid.appendChild(card);
                 
-                // Gerar o QR Code genérico para cada caixa
+                // Gerar o QR Code com a biblioteca QRious
                 try {
-                    new QRCode(document.getElementById(`qr-box-${i}`), {
-                        text: baseUrl,
-                        width: 110,
-                        height: 110,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.M
+                    new QRious({
+                        element: document.getElementById(`qr-box-${i}`),
+                        value: baseUrl,
+                        size: 110,
+                        level: 'M'
                     });
                 } catch (err) {
                     console.error("Falha ao gerar QR Code " + i, err);
